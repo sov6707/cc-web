@@ -18,5 +18,5 @@ local to_download = {
 }
 
 for i, v in pairs(to_download) do
-    download(v, "cc-web/" .. v)
+    download(v, "cc-web/" .. v:gsub("main/", ""))
 end
