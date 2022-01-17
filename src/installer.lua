@@ -11,11 +11,10 @@ local function download(file, dest)
 end
 
 local to_download = {
-    "json.lua",
-    "log.lua",
-    "client.lua",
-    "host.lua",
-    "listener.lua"
+    "main/json.lua",
+    "main/log.lua",
+    "main/client.lua",
+    "main/host.lua",
 }
 
 for i, v in pairs(to_download) do

@@ -96,8 +96,6 @@ function main()
         else
             print("Command" .. command .. " does not exist")
         end
-
-
     end
 end
 
