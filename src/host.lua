@@ -87,7 +87,17 @@ function main()
         elseif firstpart == "exec_lua" then
             local returned = json.encode({ command = "exec_lua", code = split[2] })
             modem.transmit(54, 56, returned)
+        elseif firstpart == "close" then
+            modem.close(tonumber(split[2]))
+            print("Closed channel: " .. split[2])
+        elseif firstpart == "open" then
+            modem.open(tonumber(split[2]))
+            print("Opened channel: " .. split[2])
+        else
+            print("Command" .. command .. " does not exist")
         end
+
+
     end
 end
 
