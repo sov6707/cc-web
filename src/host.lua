@@ -83,6 +83,9 @@ function main()
             modem.transmit(54, 56, returned)
         elseif firstpart == "clear" then
             shell.execute("clear", "all")
+        elseif firstpart == "info" then
+            local returned = json.encode({ command = "info" })
+            modem.transmit(54, 56, returned)
         end
     end
 end

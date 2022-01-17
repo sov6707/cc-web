@@ -63,8 +63,9 @@ function main()
                 local first = args[1]
                 table.remove(backup, 1)
                 shell.execute(first, unpack(backup))
-            elseif decoded.command == "set_name" then
-
+            elseif decoded.command == "info" then
+                local returned = json.encode({id = c_id, version = version})
+                modem.transmit(replyChannel, 54, returned)
             elseif decoded.command == "" then
 
             elseif decoded.command == "" then
