@@ -17,6 +17,10 @@ local to_download = {
     "main/host.lua",
 }
 
+print("being reworked")
+
+--[[
 for i, v in pairs(to_download) do
     download(v, "cc-web/" .. v:gsub("main/", ""))
 end
+]]

@@ -7,7 +7,7 @@
 return {
     name = "placeholder",
     desc = "Placeholder command",
-    func = function(...)
+    call = function(...)
         local args = {...}
         print(unpack(args))
     end
