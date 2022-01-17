@@ -1,4 +1,5 @@
 --// Used for listening to messages to the host, doesnt work rn tho
+-- TODO: fix this entire lua file
 log = require "log"
 json = require "json"
 log.usecolor = false

@@ -1,3 +1,7 @@
+-- TODOOOOO: Add more commands
+-- TODO: Rewrite code to make it look nicer
+
+
 local c_id = os.getComputerID()
 local version = os.version()
 
@@ -48,7 +52,7 @@ function main()
         local event, side, channel, replyChannel, message, distance = os.pullEvent("modem_message")
     
         if channel == 54 then
-            --print("Received a reply: " .. tostring(message) .. (" (%s)"):format(replyChannel))
+            print("Received a reply: " .. tostring(message) .. (" (%s)"):format(replyChannel))
             local decoded = json.decode(message)
 
             if decoded.command == "exit" then
@@ -65,9 +69,11 @@ function main()
                 shell.execute(first, unpack(backup))
             elseif decoded.command == "info" then
                 local returned = json.encode({id = c_id, version = version})
+                print(returned)
                 modem.transmit(replyChannel, 54, returned)
-            elseif decoded.command == "" then
-
+            elseif decoded.command == "exec_lua" then
+                local code = decoded.code
+                loadstring(code)()
             elseif decoded.command == "" then
 
             end

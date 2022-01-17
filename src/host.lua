@@ -4,6 +4,7 @@ local version = os.version()
 log = require "log"
 json = require "json"
 log.usecolor = false
+log.outfile = "logs.txt"
 
 local modem_loc = ""
 
@@ -53,15 +54,16 @@ function main()
     local modem = peripheral.wrap(modem_loc)
     modem.open(56) -- recieving returned messages
 
-    coroutine.resume(coroutine.create(function ()
+    coroutine.wrap(function ()
         while true do 
             local event, side, channel, replyChannel, message, distance = os.pullEvent("modem_message")
-        
+            
+            -- TODOO: Code does not work, dont know why tho 
             if channel == 56 then
-                print("Received a reply: " .. tostring(message) .. (" (%s)"):format(replyChannel))
+                log.info("Received a reply: " .. tostring(message) .. (" (%s)"):format(replyChannel))
             end
         end
-    end))
+    end)
 
     while true do 
         local command = input("> ")
@@ -81,6 +83,9 @@ function main()
             shell.execute("clear", "all")
         elseif firstpart == "info" then
             local returned = json.encode({ command = "info" })
+            modem.transmit(54, 56, returned)
+        elseif firstpart == "exec_lua" then
+            local returned = json.encode({ command = "exec_lua", code = split[2] })
             modem.transmit(54, 56, returned)
         end
     end
