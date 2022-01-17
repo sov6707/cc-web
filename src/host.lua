@@ -53,10 +53,6 @@ function main()
     local modem = peripheral.wrap(modem_loc)
     modem.open(56) -- recieving returned messages
 
-    coroutine.create(function ()
-        print("hi")
-    end)
-
     coroutine.resume(coroutine.create(function ()
         while true do 
             local event, side, channel, replyChannel, message, distance = os.pullEvent("modem_message")

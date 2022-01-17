@@ -14,7 +14,8 @@ local to_download = {
     "json.lua",
     "log.lua",
     "client.lua",
-    "host.lua"
+    "host.lua",
+    "listener.lua"
 }
 
 for i, v in pairs(to_download) do
