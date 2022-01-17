@@ -1,4 +1,4 @@
---// Used for listening to messages to the host
+--// Used for listening to messages to the host, doesnt work rn tho
 log = require "log"
 json = require "json"
 log.usecolor = false
