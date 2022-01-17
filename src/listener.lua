@@ -47,6 +47,10 @@ function main()
         if channel == 56 then
             print("Received a reply: " .. tostring(message) .. (" (%s)"):format(replyChannel))
         end
+
+        if channel == 54 then
+            print("Received a reply: " .. tostring(message) .. (" (%s)"):format(replyChannel))
+        end
     end
 end
 
