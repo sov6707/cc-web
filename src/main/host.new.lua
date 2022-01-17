@@ -46,9 +46,6 @@ function ccweb:start(self, ...)
 
     modem:listen(57, function(event, side, channel, replyChannel, message, distance) 
         print(("[CHANNEL 57] Recieved a reply: %s (%s) (%s)"):format(message, channel, distance))
-        local f = io.open("fuck.txt", "w")
-        f:write(("[CHANNEL 56] Recieved a reply: %s (%s) (%s)"):format(message, channel, distance))
-        f:close()
     end)
     print("Set up channel 57")
 
